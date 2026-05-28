@@ -1,0 +1,144 @@
+/* Dashboard */
+.dashboard-page {
+  background: #f8fafc;
+}
+
+.dashboard-page::before {
+  display: none;
+}
+
+.dashboard-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.dashboard-section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.dashboard-page .btn-nova-transacao {
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.summary-card {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+
+.summary-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 6px;
+}
+
+.summary-card__label {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.summary-card__value {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.summary-card--saldo::after {
+  background: #2563eb;
+}
+
+.summary-card--saldo .summary-card__value {
+  color: #2563eb;
+}
+
+.summary-card--entrada::after {
+  background: #10b981;
+}
+
+.summary-card--entrada .summary-card__value {
+  color: #10b981;
+}
+
+.summary-card--saida::after {
+  background: #ef4444;
+}
+
+.summary-card--saida .summary-card__value {
+  color: #ef4444;
+}
+
+.dashboard-page .card.border-0.shadow-sm {
+  border-radius: 1rem;
+}
+
+.dashboard-page .card.border-0.shadow-sm .card-body {
+  box-shadow: none;
+  background: #fff;
+  border-radius: 1rem;
+}
+
+.dashboard-page .table th,
+.dashboard-page .table td {
+  vertical-align: middle;
+}
+
+.dashboard-page .table tbody tr:hover {
+  background-color: rgba(59, 130, 246, 0.06);
+}
+
+.tipo-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.tipo-badge--receita {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.tipo-badge--despesa {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.dashboard-page .table .btn-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+
+.dashboard-page .table .btn-sm .bx {
+  font-size: 1.125rem;
+}

@@ -1,0 +1,49 @@
+/* Global */
+body {
+  background: radial-gradient(circle at top left, #eff4ff 0%, #ffffff 38%, #eef3fb 100%);
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 24%),
+              radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.12), transparent 24%);
+  pointer-events: none;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.form-control,
+.form-select {
+  border-radius: 0.8rem;
+}
+
+.alert {
+  border-radius: 0.8rem;
+}
+
+.text-muted.small {
+  color: #64748b !important;
+}
+
+.form-label {
+  text-align: left;
+  display: block;
+  margin-bottom: 0.5rem;
+}
