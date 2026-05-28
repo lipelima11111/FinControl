@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FinControl — Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body class="dashboard-page">
+
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+      <span class="navbar-brand fw-bold">FinControl</span>
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-white small">Olá, <strong>{{usuarioNome}}</strong></span>
+        <a href="/logout" class="btn btn-outline-light btn-sm">Sair</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <div class="dashboard-top d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+      <div>
+        <h1 class="dashboard-title mb-1">Dashboard</h1>
+        <p class="dashboard-subtitle mb-0">Resumo da sua saúde financeira</p>
+      </div>
+      <a href="/transacoes/nova" class="btn btn-primary btn-nova-transacao">
+        + Nova Transação
+      </a>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="summary-card summary-card--saldo h-100">
+          <p class="summary-card__label">Saldo Total</p>
+          <p class="summary-card__value">R$ {{saldoFormatado}}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-card summary-card--entrada h-100">
+          <p class="summary-card__label">Entradas +</p>
+          <p class="summary-card__value">+ R$ {{receitasFormatado}}</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-card summary-card--saida h-100">
+          <p class="summary-card__label">Saídas -</p>
+          <p class="summary-card__value">- R$ {{despesasFormatado}}</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="dashboard-section-title mb-3">Histórico de Transações</h3>
+
+    <div class="card border-0 shadow-sm">
+      <div class="card-body p-0">
+        {{#historicoVazio}}
+          <p class="text-muted text-center py-5 mb-0">
+            Nenhuma transação registrada ainda.<br>
+            <a href="/transacoes/nova">Registre a primeira!</a>
+          </p>
+        {{/historicoVazio}}
+        {{^historicoVazio}}
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Data</th>
+                  <th>Descrição</th>
+                  <th>Categoria</th>
+                  <th>Tipo</th>
+                  <th class="text-end">Valor</th>
+                  <th class="text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#historico}}
+                  <tr>
+                    <td class="text-nowrap">{{dataFormatada}}</td>
+                    <td>{{descricao}}</td>
+                    <td>{{categoriaNome}}</td>
+                    <td>
+                      <span class="tipo-badge {{tipoBadgeClass}}">{{categoriaTipo}}</span>
+                    </td>
+                    <td class="text-end fw-semibold {{valorClass}}">
+                      R$ {{valorFormatado}}
+                    </td>
+                    <td class="text-center text-nowrap">
+                      <div class="d-inline-flex gap-1">
+                        <a href="/transacoes/{{id}}/editar" class="btn btn-sm btn-outline-secondary"
+                          title="Editar" aria-label="Editar">
+                          <i class="bx bx-edit-alt"></i>
+                        </a>
+                        <form method="POST" action="/transacoes/{{id}}/deletar" class="d-inline">
+                          <button type="submit" class="btn btn-sm btn-outline-danger"
+                            title="Excluir" aria-label="Excluir"
+                            onclick="return confirm('Confirmar exclusão?')">
+                            <i class="bx bx-trash"></i>
+                          </button>
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+                {{/historico}}
+              </tbody>
+            </table>
+          </div>
+        {{/historicoVazio}}
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
