@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FinControl — {{titulo}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/css/transacoes.css">
+</head>
+<body class="transacao-page">
+
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+      <a href="/dashboard" class="navbar-brand fw-bold">FinControl</a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <div class="row justify-content-center w-100">
+      <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="page-header mb-4">
+              <h1 class="mb-1">{{titulo}}</h1>
+              <p class="text-muted mb-0">Registre um ganho ou uma despesa para atualizar seu saldo.</p>
+            </div>
+
+            {{#erro}}
+              <div class="alert alert-danger py-2">{{erro}}</div>
+            {{/erro}}
+
+            <form method="POST" action="{{formAction}}">
+
+              <div class="mb-3">
+                <label class="form-label text-start">Descrição</label>
+                <input type="text" name="descricao" class="form-control"
+                  value="{{descricao}}"
+                  placeholder="Ex: Supermercado, Salário...">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label text-start">Valor (R$)</label>
+                <input type="number" name="valor" class="form-control"
+                  step="0.01" min="0.01"
+                  value="{{valor}}"
+                  placeholder="0,00" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label text-start">Data</label>
+                <input type="date" name="data" class="form-control"
+                  value="{{data}}" required>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label text-start">Categoria</label>
+                <select name="categoria_id" class="form-select" required>
+                  <option value="">Selecione uma categoria...</option>
+
+                  <optgroup label="Receitas">
+                    {{#categoriasReceita}}
+                      <option value="{{id}}" {{#selected}}selected{{/selected}}>
+                        {{nome}}
+                      </option>
+                    {{/categoriasReceita}}
+                  </optgroup>
+
+                  <optgroup label="Despesas">
+                    {{#categoriasDespesa}}
+                      <option value="{{id}}" {{#selected}}selected{{/selected}}>
+                        {{nome}}
+                      </option>
+                    {{/categoriasDespesa}}
+                  </optgroup>
+
+                </select>
+              </div>
+
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                  {{botaoSubmit}}
+                </button>
+                <a href="/dashboard" class="btn btn-outline-secondary">Cancelar</a>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
