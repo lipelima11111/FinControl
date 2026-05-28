@@ -1,0 +1,154 @@
+/* Login e cadastro */
+.auth-page {
+  background: #fff;
+  min-height: 100vh;
+}
+
+.auth-page::before {
+  display: none;
+}
+
+.auth-panel--brand {
+  background: #2563eb;
+  color: #fff;
+  padding: 3rem;
+}
+
+.auth-brand__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.auth-brand__tagline {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+  max-width: 22rem;
+  line-height: 1.5;
+}
+
+.auth-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.auth-features .bx-check {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.auth-brand__footer {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.auth-panel--form {
+  background: #fff;
+  padding: 2rem 1.5rem;
+}
+
+.auth-form-wrapper {
+  max-width: 400px;
+  padding: 0 1rem;
+}
+
+.auth-form-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.35rem;
+}
+
+.auth-form-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+
+.auth-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.35rem;
+}
+
+.auth-input {
+  border-radius: 8px;
+  border-color: #e5e7eb;
+  padding: 0.625rem 0.875rem;
+}
+
+.auth-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+}
+
+.auth-btn {
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
+  font-weight: 500;
+}
+
+.auth-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.auth-link-small {
+  font-size: 0.875rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.auth-link-small:hover {
+  color: #1d4ed8;
+}
+
+.auth-divider {
+  position: relative;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.auth-divider hr {
+  margin: 0;
+  border-color: #e5e7eb;
+}
+
+.auth-divider span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 0 0.75rem;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.auth-footer-text {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.auth-check-label {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+@media (min-width: 768px) {
+  .auth-panel--form {
+    padding: 3rem;
+  }
+}

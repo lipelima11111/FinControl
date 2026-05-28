@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FinControl — Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body class="auth-page">
+
+  <div class="container-fluid g-0 min-vh-100">
+    <div class="row g-0 min-vh-100">
+
+      <div class="col-md-6 auth-panel auth-panel--brand d-none d-md-flex">
+        <div class="auth-brand d-flex flex-column justify-content-between h-100 w-100">
+          <div>
+            <h1 class="auth-brand__title">FinControl</h1>
+            <p class="auth-brand__tagline">Controle suas finanças com simplicidade.</p>
+            <ul class="auth-features list-unstyled mb-0">
+              <li><i class="bx bx-check"></i> Registre receitas e despesas</li>
+              <li><i class="bx bx-check"></i> Visualize seu saldo em tempo real</li>
+              <li><i class="bx bx-check"></i> Categorize seus gastos</li>
+              <li><i class="bx bx-check"></i> Histórico completo de transações</li>
+            </ul>
+          </div>
+          <p class="auth-brand__footer mb-0">© 2026 FinControl — UCB Grupo 3</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 auth-panel auth-panel--form d-flex align-items-center justify-content-center">
+        <div class="auth-form-wrapper w-100">
+          <div class="auth-form-header d-md-none text-center mb-4">
+            <h2 class="auth-form-title mb-0">FinControl</h2>
+          </div>
+
+          <h2 class="auth-form-title">Bem-vindo de volta!</h2>
+          <p class="auth-form-subtitle">Acesse sua conta para continuar</p>
+
+          {{#erro}}
+            <div class="alert alert-danger py-2">{{erro}}</div>
+          {{/erro}}
+
+          <form method="POST" action="/login" class="auth-form">
+            <div class="mb-3">
+              <label class="form-label auth-label">E-mail</label>
+              <input type="email" name="email" class="form-control auth-input"
+                placeholder="seu@email.com" required>
+            </div>
+            <div class="mb-2">
+              <label class="form-label auth-label">Senha</label>
+              <input type="password" name="senha" class="form-control auth-input"
+                placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 auth-btn">Entrar</button>
+          </form>
+
+          <div class="auth-divider">
+            <hr>
+            <span>ou</span>
+          </div>
+
+          <p class="auth-footer-text text-center mb-0">
+            Não tem conta? <a href="/cadastro" class="auth-link">Cadastre-se</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
