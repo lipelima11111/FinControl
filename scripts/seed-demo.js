@@ -4,12 +4,14 @@ const sequelize = require('../config/database');
 const { Usuario, Categoria, Transacao } = require('../models');
 const { CATEGORIAS_SEED } = require('../constants/categorias');
 
+// Dados do usuário demo
 const DEMO = {
   nome: 'Demo User',
   email: 'demo@fincontrol.com',
   senha: 'password',
 };
 
+// Dados das transações do usuário demo
 const TRANSACOES_SEED = [
   { descricao: 'Salário mensal', valor: 5200.00, data: '2026-01-05', categoria: 'Salário' },
   { descricao: 'Aluguel', valor: 1800.00, data: '2026-01-08', categoria: 'Moradia' },

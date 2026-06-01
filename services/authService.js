@@ -3,7 +3,7 @@ const bcrypt  = require('bcryptjs');
 const { Usuario } = require('../models');
 
 class AuthService {
-  // Cadastro do usuário
+  // Cadastro de novo usuário
   async cadastrar({ nome, email, senha, senha_confirmacao }) {
     if (!nome || !email || !senha || !senha_confirmacao)
       throw new Error('Preencha todos os campos.');
@@ -18,7 +18,7 @@ class AuthService {
     return Usuario.create({ nome, email, senha: hash });
   }
 
-  // Login do usuário
+  // Autenticação do usuário
   async autenticarUsuario(email, senha) {
     if (!email || !senha)
       throw new Error('Preencha e-mail e senha.');

@@ -1,8 +1,16 @@
 // Formata dados para o Mustache (templates não têm lógica)
+
+// Formata valor em moeda brasileira (R$ 1.234,56)
 function formatMoeda(valor) {
-  return parseFloat(valor).toFixed(2).replace('.', ',');
+  const numero = Number(valor);
+  if (!Number.isFinite(numero)) return '0,00';
+  return numero.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 }
 
+// Formata data em português brasileiro (dd/mm/aaaa)
 function formatData(isoDate) {
   return new Date(isoDate + 'T00:00:00').toLocaleDateString('pt-BR');
 }

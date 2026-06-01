@@ -18,8 +18,6 @@ router.post('/cadastro',  AuthController.cadastrar.bind(AuthController));
 
 
 // Rotas protegidas: exigem authMiddleware antes do controller
-
-// Rota de logout
 router.get('/logout',     authMiddleware, AuthController.logout.bind(AuthController));
 
 router.get('/dashboard',  authMiddleware, DashboardController.index.bind(DashboardController));

@@ -5,6 +5,7 @@ body {
   min-height: 100vh;
 }
 
+/* Adiciona gradiente de fundo para o body */
 body::before {
   content: '';
   position: fixed;

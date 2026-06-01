@@ -21,6 +21,7 @@ class DashboardService {
     return { saldo: receitas - despesas, receitas, despesas };
   }
 
+  // Busca histórico de transações ordenado por data e id
   async buscarHistorico(usuarioId) {
     return Transacao.findAll({
       where: { usuario_id: usuarioId },
