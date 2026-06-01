@@ -50,6 +50,19 @@ Acesse no navegador: **[http://localhost:8080](http://localhost:8080)**
 
 Na primeira execução, o Sequelize cria o banco em `data/fincontrol.db` e insere as categorias padrão se a tabela estiver vazia.
 
+### Usuário demo (seed)
+
+Para popular o banco com um usuário de teste e transações de exemplo:
+```bash
+npm run seed:demo
+```
+Credenciais: **demo@fincontrol.com** / senha: **password**
+
+Apagar as transações do seed:
+```bash
+node scripts/seed-demo.js --force
+```
+
 
 ## Rotas da API web
 
