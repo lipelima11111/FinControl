@@ -1,3 +1,4 @@
+// Mapa de URLs → controllers (camada que recebe a requisição HTTP)
 const express     = require('express');
 const router      = express.Router();
 
@@ -9,18 +10,20 @@ const TransacaoController  = require('../controllers/TransacaoController');
 // Rota raiz
 router.get('/', (req, res) => res.redirect('/dashboard'));
 
-// Autenticação (públicas)
+// Rotas públicas: login e cadastro
 router.get('/login',      AuthController.showLogin.bind(AuthController));
 router.post('/login',     AuthController.login.bind(AuthController));
 router.get('/cadastro',   AuthController.showCadastro.bind(AuthController));
 router.post('/cadastro',  AuthController.cadastrar.bind(AuthController));
 
+
+// Rotas protegidas: exigem authMiddleware antes do controller
+
+// Rota de logout
 router.get('/logout',     authMiddleware, AuthController.logout.bind(AuthController));
 
-// Dashboard (protegidas)
 router.get('/dashboard',  authMiddleware, DashboardController.index.bind(DashboardController));
 
-// Transações (protegidas)
 router.get('/transacoes/nova',         authMiddleware, TransacaoController.showNova.bind(TransacaoController));
 router.post('/transacoes',             authMiddleware, TransacaoController.criar.bind(TransacaoController));
 router.get('/transacoes/:id/editar',   authMiddleware, TransacaoController.showEditar.bind(TransacaoController));

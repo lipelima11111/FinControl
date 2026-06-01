@@ -1,3 +1,4 @@
+// Bloqueia rotas protegidas se o usuário não estiver logado
 function authMiddleware(req, res, next) {
   if (!req.session.usuarioId) return res.redirect('/login');
   next();

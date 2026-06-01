@@ -1,3 +1,4 @@
+// Persistência de transações (sempre filtra por usuario_id do dono)
 const { Transacao, Categoria } = require('../models');
 
 class TransacaoService {

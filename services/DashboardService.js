@@ -1,6 +1,8 @@
+// Cálculos do painel: saldo, totais e listagem de transações
 const { Transacao, Categoria } = require('../models');
 
 class DashboardService {
+  // Soma receitas e despesas conforme o tipo da categoria
   async calcularSaldoTotal(usuarioId) {
     const transacoes = await Transacao.findAll({
       where: { usuario_id: usuarioId },

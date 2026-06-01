@@ -1,3 +1,4 @@
+// Conexão com SQLite via Sequelize (arquivo em data/fincontrol.db)
 const { Sequelize } = require('sequelize');
 const path = require('path');
 const fs   = require('fs');

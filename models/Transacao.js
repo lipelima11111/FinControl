@@ -1,3 +1,4 @@
+// Model da tabela transacoes (ligada a usuário e categoria)
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 

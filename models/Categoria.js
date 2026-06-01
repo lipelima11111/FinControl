@@ -1,3 +1,4 @@
+// Model da tabela categorias (receita ou despesa)
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 

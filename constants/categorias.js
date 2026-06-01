@@ -1,3 +1,4 @@
+// Lista fixa de categorias inserida no banco na primeira execução
 const CATEGORIAS_SEED = [
   { nome: 'Salário',             tipo: 'receita' },
   { nome: 'Transferências',      tipo: 'receita' },

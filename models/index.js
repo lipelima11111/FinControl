@@ -1,8 +1,8 @@
+// Centraliza models e define relacionamentos (1 usuário → N transações)
 const Usuario  = require('./Usuario');
 const Categoria = require('./Categoria');
 const Transacao = require('./Transacao');
 
-// Associações
 Usuario.hasMany(Transacao,   { foreignKey: 'usuario_id',   onDelete: 'CASCADE', as: 'Transacoes' });
 Transacao.belongsTo(Usuario, { foreignKey: 'usuario_id', as: 'Usuario' });
 

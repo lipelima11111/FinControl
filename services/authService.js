@@ -1,3 +1,4 @@
+// Regras de negócio de autenticação (validação e persistência)
 const bcrypt  = require('bcryptjs');
 const { Usuario } = require('../models');
 

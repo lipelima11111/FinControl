@@ -1,14 +1,18 @@
+// Controller de autenticação: liga HTTP (req/res) ao AuthService
 const AuthService = require('../services/authService');
 
 class AuthController {
+  // Exibe formulário de login
   showLogin(req, res) {
     res.render('auth/login', { erro: null });
   }
 
+  // Exibe formulário de cadastro
   showCadastro(req, res) {
     res.render('auth/cadastro', { erro: null });
   }
 
+  // Valida credenciais e grava id na sessão
   async login(req, res) {
     try {
       const { email, senha } = req.body;
@@ -21,6 +25,7 @@ class AuthController {
     }
   }
 
+  // Cria novo usuário
   async cadastrar(req, res) {
     try {
       await AuthService.cadastrar(req.body);
@@ -30,6 +35,7 @@ class AuthController {
     }
   }
 
+  // Encerra sessão do usuário logado
   logout(req, res) {
     req.session.destroy(() => res.redirect('/login'));
   }

@@ -1,3 +1,4 @@
+// Script opcional: popula usuário demo e transações de exemplo (npm run seed:demo)
 const bcrypt = require('bcryptjs');
 const sequelize = require('../config/database');
 const { Usuario, Categoria, Transacao } = require('../models');
@@ -43,6 +44,7 @@ const force = process.argv.includes('--force');
 async function main() {
   await sequelize.sync();
 
+  // Garante categorias antes de vincular transações
   if (await Categoria.count() === 0) {
     await Categoria.bulkCreate(CATEGORIAS_SEED);
     console.log('Categorias padrão criadas.');

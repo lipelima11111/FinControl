@@ -1,3 +1,4 @@
+// Formata dados para o Mustache (templates não têm lógica)
 function formatMoeda(valor) {
   return parseFloat(valor).toFixed(2).replace('.', ',');
 }
@@ -6,6 +7,7 @@ function formatData(isoDate) {
   return new Date(isoDate + 'T00:00:00').toLocaleDateString('pt-BR');
 }
 
+// Converte transações do banco em objeto pronto para a tabela do dashboard
 function mapHistorico(historico) {
   return historico.map(t => {
     const isReceita = t.Categoria.tipo === 'receita';
@@ -16,12 +18,13 @@ function mapHistorico(historico) {
       categoriaNome: t.Categoria.nome,
       categoriaTipo: isReceita ? 'Receita' : 'Despesa',
       valorFormatado: formatMoeda(t.valor),
-      tipoBadgeClass: isReceita ? 'tipo-badge--receita' : 'tipo-badge--despesa', // para estilização do CSS
-      valorClass: isReceita ? 'text-success' : 'text-danger', // para estilização do CSS
+      tipoBadgeClass: isReceita ? 'tipo-badge--receita' : 'tipo-badge--despesa',  // Classe CSS para o badge de tipo
+      valorClass: isReceita ? 'text-success' : 'text-danger',  // Classe CSS para o valor
     };
   });
 }
 
+// Converte categorias do banco em objeto pronto para o formulário de nova/edição de transação
 function mapCategoria(c, transacao) {
   return {
     id: c.id,
@@ -30,6 +33,7 @@ function mapCategoria(c, transacao) {
   };
 }
 
+// Monta objeto único para o formulário de nova/edição de transação
 function buildTransacaoForm(transacao, categorias, erro) {
   const isEdicao = !!transacao;
   return {

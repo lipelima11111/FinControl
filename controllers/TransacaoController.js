@@ -1,3 +1,4 @@
+// Controller CRUD de transações: formulários e redirect após salvar
 const TransacaoService = require('../services/TransacaoService');
 const { Categoria }    = require('../models');
 const viewHelper       = require('../utils/viewHelper');
@@ -18,7 +19,6 @@ class TransacaoController {
       res.redirect('/dashboard');
     } catch (e) {
       const categorias = await Categoria.findAll({ order: [['tipo'], ['nome']] });
-
       res.render('transacoes/form', viewHelper.buildTransacaoForm(null, categorias, e.message));
     }
   }
@@ -27,7 +27,6 @@ class TransacaoController {
     const transacao = await TransacaoService.buscarPorId(req.params.id, req.session.usuarioId);
     if (!transacao) return res.redirect('/dashboard');
     const categorias = await Categoria.findAll({ order: [['tipo'], ['nome']] });
-
     res.render('transacoes/form', viewHelper.buildTransacaoForm(transacao, categorias, null));
   }
 
@@ -41,7 +40,6 @@ class TransacaoController {
     } catch (e) {
       const transacao  = await TransacaoService.buscarPorId(req.params.id, req.session.usuarioId);
       const categorias = await Categoria.findAll({ order: [['tipo'], ['nome']] });
-      
       res.render('transacoes/form', viewHelper.buildTransacaoForm(transacao, categorias, e.message));
     }
   }
@@ -49,7 +47,7 @@ class TransacaoController {
   async deletar(req, res) {
     try {
       await TransacaoService.deletar(req.params.id, req.session.usuarioId);
-    } catch (e) { /* ignora se não encontrar */ }
+    } catch (e) { /* transação inexistente: segue para o dashboard */ }
     res.redirect('/dashboard');
   }
 }

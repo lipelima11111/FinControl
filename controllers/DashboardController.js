@@ -1,3 +1,4 @@
+// Controller do painel: busca saldo/histórico e monta dados para a view
 const DashboardService = require('../services/DashboardService');
 const viewHelper = require('../utils/viewHelper');
 
@@ -18,6 +19,7 @@ class DashboardController {
         historicoVazio: historicoView.length === 0,
       });
     } catch (e) {
+      // Em erro, exibe dashboard vazio com mensagem
       res.render('dashboard/index', {
         usuarioNome: req.session.usuarioNome,
         saldoFormatado: viewHelper.formatMoeda(0),
