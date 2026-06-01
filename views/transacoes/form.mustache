@@ -41,7 +41,7 @@
               </div>
 
               <div class="mb-3">
-                <label class="form-label text-start">Valor (R$)</label>
+                <label class="form-label text-start">Valor (R$)<span class="required-mark">*</span></label>
                 <input type="number" name="valor" class="form-control"
                   step="0.01" min="0.01"
                   value="{{valor}}"
@@ -49,13 +49,13 @@
               </div>
 
               <div class="mb-3">
-                <label class="form-label text-start">Data</label>
+                <label class="form-label text-start">Data<span class="required-mark">*</span></label>
                 <input type="date" name="data" class="form-control"
                   value="{{data}}" required>
               </div>
 
               <div class="mb-4">
-                <label class="form-label text-start">Categoria</label>
+                <label class="form-label text-start">Categoria<span class="required-mark">*</span></label>
                 <select name="categoria_id" class="form-select" required>
                   <option value="">Selecione uma categoria...</option>
 

@@ -48,3 +48,8 @@ body::before {
   display: block;
   margin-bottom: 0.5rem;
 }
+
+.required-mark {
+  color: #dc3545;
+  margin-left: 0.15rem;
+}
